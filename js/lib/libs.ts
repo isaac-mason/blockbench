@@ -22,6 +22,11 @@ Vue.directive('sortable', {
 
 const THREE = Object.assign({}, threejs);
 
+// Blockbench manages its own colors and outputs literal texture/color values through
+// custom shaders, matching the unmanaged (LinearEncoding) pipeline it relied on before
+// three r152. Disable automatic color management to preserve that appearance.
+THREE.ColorManagement.enabled = false;
+
 export {
     GIFEnc,
     GIF,

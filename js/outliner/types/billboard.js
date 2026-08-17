@@ -689,7 +689,7 @@ new NodePreviewController(Billboard, {
 		}
 
 
-		let geometry = new THREE.Geometry();
+		let geometry = new THREE.BufferGeometry();
 		geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
 
 		let box = new THREE.LineSegments(geometry, new THREE.LineBasicMaterial({color: gizmo_colors.grid}));
