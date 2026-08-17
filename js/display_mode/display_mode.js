@@ -530,6 +530,7 @@ export class refModel {
 			img.tex = tex;
 			img.tex.magFilter = THREE.NearestFilter;
 			img.tex.minFilter = THREE.NearestFilter;
+			img.tex.colorSpace = THREE.SRGBColorSpace;
 			img.onload = function() {
 				this.tex.needsUpdate = true;
 			}

@@ -58,4 +58,6 @@ void main(void)
 	if (finalColor.a < 0.01) discard;
 
 	gl_FragColor = finalColor;
+
+	#include <colorspace_fragment>
 }

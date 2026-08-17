@@ -129,12 +129,16 @@ export class TextureGroup {
 
 		// Height
 		if (normal_tex) {
-			material.normalMap = normal_tex.getOwnMaterial().map;
+			// The albedo texture is tagged sRGB; a normal map is linear data, so use a linear clone.
+			material.normalMap = normal_tex.getOwnMaterial().map.clone();
+			material.normalMap.colorSpace = THREE.NoColorSpace;
+			material.normalMap.needsUpdate = true;
 			material.bumpMap = null;
 			// Use DirectX normal maps for RenderDragon. Flips the "handedness" of the normal map.
 			material.normalScale = Project.format.id.includes('bedrock') ? new THREE.Vector2(1, -1) : new THREE.Vector2(1, 1);
 		} else if (height_tex) {
 			material.bumpMap = height_tex.getOwnMaterial().map.clone();
+			material.bumpMap.colorSpace = THREE.NoColorSpace;
 			material.bumpScale = 0.4;
 			material.normalMap = null;
 			// Bump map scale
@@ -206,6 +210,8 @@ export class TextureGroup {
 				ctx.putImageData(source_channel === 1 ? extractEmissiveChannel() : extractGrayscaleValue(source_channel), 0, 0);
 
 				material[key] = new THREE.Texture(canvas, THREE.UVMapping, THREE.RepeatWrapping, THREE.RepeatWrapping, THREE.NearestFilter, THREE.NearestFilter);
+				// Emissive is color data (sRGB); metalness/roughness are linear data maps.
+				material[key].colorSpace = key == 'emissiveMap' ? THREE.SRGBColorSpace : THREE.NoColorSpace;
 				material[key].needsUpdate = true;
 			}
 			generateMap(0, 'metalnessMap');

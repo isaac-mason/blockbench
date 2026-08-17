@@ -28,6 +28,8 @@ void main(void)
 		gl_FragColor.r = gl_FragColor.r * 0.6;
 		gl_FragColor.g = gl_FragColor.g * 0.7;
 	}
-	
+
+	#include <colorspace_fragment>
+
 	if (gl_FragColor.a < 0.05) discard;
 }

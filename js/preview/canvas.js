@@ -110,6 +110,7 @@ export const Canvas = {
 		img.tex = tex;
 		img.tex.magFilter = THREE.NearestFilter
 		img.tex.minFilter = THREE.NearestFilter
+		img.tex.colorSpace = THREE.SRGBColorSpace;
 		img.tex.wrapS = img.tex.wrapT = THREE.RepeatWrapping;
 		img.onload = function() {
 			this.tex.needsUpdate = true;
@@ -141,6 +142,7 @@ export const Canvas = {
 		img.tex = tex;
 		img.tex.magFilter = THREE.NearestFilter
 		img.tex.minFilter = THREE.NearestFilter
+		img.tex.colorSpace = THREE.SRGBColorSpace;
 		img.tex.wrapS = img.tex.wrapT = THREE.RepeatWrapping;
 		img.onload = function() {
 			this.tex.needsUpdate = true;
@@ -415,6 +417,7 @@ export const Canvas = {
 		img.tex = tex;
 		img.tex.magFilter = THREE.NearestFilter;
 		img.tex.minFilter = THREE.NearestFilter;
+		img.tex.colorSpace = THREE.SRGBColorSpace;
 		img.onload = function() {
 			this.tex.needsUpdate = true;
 		}

@@ -336,9 +336,6 @@ export class Preview {
 			}
 			throw err;
 		}
-		// Match the pre-r152 unmanaged pipeline: write linear values straight to the
-		// framebuffer instead of applying an sRGB output transform (see ColorManagement in libs.ts).
-		this.renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 		this.renderer.setClearColor( 0x000000, 0 )
 		this.renderer.setSize(500, 400);
 		this.updateToneMapping();
