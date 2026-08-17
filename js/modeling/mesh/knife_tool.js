@@ -707,6 +707,7 @@ export class KnifeToolCubeContext {
 	static map = new THREE.TextureLoader().load('assets/crosshair.png');
 }
 KnifeToolCubeContext.map.magFilter = KnifeToolCubeContext.map.minFilter = THREE.NearestFilter;
+KnifeToolCubeContext.map.colorSpace = THREE.SRGBColorSpace;
 
 BARS.defineActions(() => {
 	

@@ -100,6 +100,7 @@ OutlinerElement.registerType(Locator, 'locator');
 
 const map = new THREE.TextureLoader().load( 'assets/locator.png' );
 map.magFilter = map.minFilter = THREE.NearestFilter;
+map.colorSpace = THREE.SRGBColorSpace;
 
 new NodePreviewController(Locator, {
 	setup(element) {

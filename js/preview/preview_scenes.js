@@ -226,6 +226,7 @@ export class PreviewModel {
 			tex.minFilter = THREE.NearestFilter;
 			tex.wrapS = THREE.RepeatWrapping;
 			tex.wrapT = THREE.RepeatWrapping;
+			tex.colorSpace = THREE.SRGBColorSpace;
 			img.crossOrigin = '';
 			img.onload = function() {
 				tex.needsUpdate = true;

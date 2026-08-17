@@ -71,6 +71,7 @@ export class Texture {
 		let tex = new THREE.Texture(this.canvas);
 		tex.magFilter = THREE.NearestFilter
 		tex.minFilter = THREE.NearestFilter
+		tex.colorSpace = THREE.SRGBColorSpace;
 		tex.name = this.name;
 		img.tex = tex;
 
@@ -104,6 +105,7 @@ export class Texture {
 				tex.minFilter = mat.map.minFilter;
 				tex.wrapS = mat.map.wrapS;
 				tex.wrapT = mat.map.wrapT;
+				tex.colorSpace = THREE.SRGBColorSpace;
 				tex.name = this.name;
 				mat.map = tex;
 				mat.uniforms.map.value = tex;

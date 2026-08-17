@@ -7,10 +7,11 @@ varying float lift;
 
 void main(void)
 {
+	// Literals are authored in sRGB; decode to the linear working space before shading.
 	if (gl_FrontFacing) {
-		gl_FragColor = vec4(vec3(0.20, 0.68, 0.32) * light, 1.0);
+		gl_FragColor = vec4(sRGBTransferEOTF(vec4(0.20, 0.68, 0.32, 1.0)).rgb * light, 1.0);
 	} else {
-		gl_FragColor = vec4(vec3(0.76, 0.21, 0.20) * light, 1.0);
+		gl_FragColor = vec4(sRGBTransferEOTF(vec4(0.76, 0.21, 0.20, 1.0)).rgb * light, 1.0);
 	}
 
 	if (lift > 0.1) {
@@ -30,4 +31,5 @@ void main(void)
 		}
 	}
 
+	#include <colorspace_fragment>
 }

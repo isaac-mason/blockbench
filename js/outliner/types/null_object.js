@@ -123,6 +123,7 @@ export class NullObject extends OutlinerElement {
 
 	const map = new THREE.TextureLoader().load( 'assets/null_object.png' );
 	map.magFilter = map.minFilter = THREE.NearestFilter;
+	map.colorSpace = THREE.SRGBColorSpace;
 	
 new NodePreviewController(NullObject, {
 	setup(element) {

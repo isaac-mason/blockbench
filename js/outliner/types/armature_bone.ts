@@ -432,6 +432,7 @@ new NodePreviewController(ArmatureBone, {
 		mesh.visible = element.visibility;
 		mesh.no_export = true;
 		mesh.name = element.uuid;
+		// @ts-expect-error Blockbench overwrites the three.js object type with its own element type
 		mesh.type = element.type;
 		mesh.isElement = true;
 		object_3d.add(mesh);
